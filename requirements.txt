@@ -1,0 +1,21 @@
+# LogPoison — Python dependencies
+# Requires Python 3.11 (see docs/SPEC.md — Coding conventions)
+
+# LLM APIs
+openai
+google-generativeai
+ollama
+
+# Data processing & ML
+pandas
+scikit-learn
+sentence-transformers
+scipy
+
+# Visualization
+matplotlib
+seaborn
+
+# Data generation & utilities
+faker
+python-Levenshtein

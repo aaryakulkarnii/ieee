@@ -1,0 +1,3 @@
+# Eval directory
+# Contains the evaluation harness and results CSV files.
+# See docs/SPEC.md — Metrics section.

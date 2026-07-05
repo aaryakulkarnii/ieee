@@ -1,0 +1,3 @@
+# Attacks directory
+# Contains adversarial attack implementations against LLM-based SOC/SIEM copilots.
+# See docs/SPEC.md — Attack Classes to Implement section.

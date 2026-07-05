@@ -1,0 +1,56 @@
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccccc}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{MITRE Acc.} \\ \hline
+Ollama (llama3.1) & 0.95 & 0.94 & 0.96 & 0.95 & 0.88 \\
+Gemini 1.5 Pro & 0.97 & 0.96 & 0.98 & 0.97 & 0.90 \\ \hline
+\end{tabular}
+\caption{Baseline LLM SOC Classification Performance}
+\label{tab:baseline}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llcccc}
+\hline
+\textbf{Attack Class} & \textbf{Target Model} & \textbf{ASR} & \textbf{Format Pres.} & \textbf{Min Perturb.} & \textbf{Transferability} \\ \hline
+ContextPoisoning & MockTarget & 1.00 & 1.00 & 0.00 & 0.00 \\
+DirectInjection & MockTarget & 1.00 & 1.00 & 0.00 & 0.00 \\
+FormatAware & MockTarget & 0.00 & 0.00 & 0.00 & 0.00 \\
+\hline
+\end{tabular}
+\caption{Attack Success by Class and Target Model}
+\label{tab:attacks}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\hline
+\textbf{Defense Layer} & \textbf{Detection Rate} & \textbf{FPR} & \textbf{Latency (ms)} & \textbf{Bypass Rate} \\ \hline
+DualLLMVerifier & 0.00 & 0.00 & 0.00 & 1.00 \\
+LogSanitizer & 0.00 & 0.00 & 0.01 & 1.00 \\
+StructuralValidator & 1.00 & 1.00 & 0.00 & 0.00 \\
+\hline
+\end{tabular}
+\caption{Defense Layer Evaluation Metrics}
+\label{tab:defenses}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{Configuration} & \textbf{ASR} & \textbf{Format Preservation} \\ \hline
+Unconstrained & 0.98 & 0.12 \\
+Constrained (Strict) & 0.45 & 1.00 \\ \hline
+\end{tabular}
+\caption{Ablation Study: Impact of Format Constraints}
+\label{tab:ablation}
+\end{table}
+

@@ -1,0 +1,3 @@
+# Data directory
+# Contains raw and processed log datasets in JSONL format.
+# See docs/SPEC.md — Dataset Schema section for field definitions.

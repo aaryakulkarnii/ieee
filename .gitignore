@@ -1,0 +1,9 @@
+# Large datasets
+*.csv
+*.zip
+*.npz
+*.pcap
+archive (5)/
+data/raw/
+__pycache__/
+*.pyc

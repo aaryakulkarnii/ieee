@@ -1,0 +1,3 @@
+# LLM Targets directory
+# Contains LLMTarget interface and OpenAI, Gemini, Ollama implementations.
+# See docs/SPEC.md — Target LLMs section.

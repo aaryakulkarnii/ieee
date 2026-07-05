@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-07-02T10:36:15.117058+00:00",
+  "seed": 42,
+  "targets": {
+    "benign": 5000,
+    "malicious": 3000
+  },
+  "sources": {
+    "CICIDS2017": {
+      "benign/CEF": 5000,
+      "malicious/CEF": 3000
+    },
+    "Loghub": {
+      "benign/syslog": 3000,
+      "benign/JSON": 2000,
+      "malicious/JSON": 1500
+    }
+  },
+  "skipped_sources": [],
+  "output_files": {
+    "logpoison_benign.jsonl": {
+      "path": "C:\\Users\\aarya\\Downloads\\ieee\\data\\logpoison_benign.jsonl",
+      "count": 5000
+    },
+    "logpoison_malicious.jsonl": {
+      "path": "C:\\Users\\aarya\\Downloads\\ieee\\data\\logpoison_malicious.jsonl",
+      "count": 3000
+    },
+    "logpoison_full.jsonl": {
+      "path": "C:\\Users\\aarya\\Downloads\\ieee\\data\\logpoison_full.jsonl",
+      "count": 8000
+    }
+  },
+  "final_counts": {
+    "benign": 5000,
+    "malicious": 3000,
+    "total": 8000
+  },
+  "format_breakdown": {
+    "CEF": 4522,
+    "JSON": 2007,
+    "syslog": 1471
+  },
+  "source_breakdown": {
+    "CICIDS2017": 4522,
+    "BGL": 2007,
+    "HDFS": 1471
+  }
+}
