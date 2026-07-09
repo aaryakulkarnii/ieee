@@ -11,19 +11,22 @@ INJECTION_PAYLOADS = [
 ]
 
 def validate_format(crafted_log: str, log_format: str) -> bool:
-    """
-    Validates that the crafted log remains structurally valid under its stated schema.
-    """
     try:
         if log_format == "JSON":
-            # Must remain valid JSON
             json.loads(crafted_log)
             return True
         elif log_format == "syslog":
-            # Basic syslog format check: <PRIVAL>TIMESTAMP HOSTNAME APP: MSG
-            return bool(re.match(r"^<\d{1,3}>[A-Za-z]{3}\s+\d{1,2}\s\d{2}:\d{2}:\d{2}\s\S+\s.*", crafted_log))
+            # Accept ANY of these syslog variants:
+            # 1. RFC syslog: <PRI>Mon DD HH:MM:SS hostname app: msg
+            # 2. HDFS/BGL: YYMMDD HHMMSS PID LEVEL component: msg
+            # 3. Wrapped syslog: <PRI>Mon DD HH:MM:SS hostname system[N]: msg
+            patterns = [
+                r"^<\d{1,3}>[A-Za-z]{3}\s+\d{1,2}\s\d{2}:\d{2}:\d{2}\s\S+\s.*",  # RFC
+                r"^\d{6}\s\d{6}\s\d+\s(INFO|WARN|ERROR|FATAL|DEBUG)\s.*",           # HDFS/BGL
+                r"^<\d{1,3}>[A-Za-z]{3}\s+\d{1,2}\s\d{2}:\d{2}:\d{2}\s\S+\ssystem\[\d+\]:.*",  # wrapped
+            ]
+            return any(bool(re.match(p, crafted_log)) for p in patterns)
         elif log_format == "CEF":
-            # Basic CEF prefix check
             return crafted_log.startswith("CEF:0|")
         return True
     except Exception:
